@@ -1,18 +1,15 @@
-# Italian translations for Ruby on Rails 
-# by Claudio Poli (masterkain@gmail.com)
-# maintained by Simone Carletti (weppos@weppos.net)
+# Italian translations for Ruby on Rails
+# by Maurizio De Santis (desantis.maurizio@gmail.com)
 #
-# This localization file targets Rails 2.3.2.
-# If you need a previous version go to http://github.com/weppos/rails-i18n/
-# and choose between available tags.
+# This localization file targets Rails 3.0.
 
 it:
   number:
     format:
       separator: ","
       delimiter: "."
-      precision: 3
-      
+      precision: 2
+
     currency:
       format:
         format: "%n %u"
@@ -20,21 +17,21 @@ it:
         separator: "."
         delimiter: ","
         precision: 2
-        
+
     percentage:
       format:
         delimiter: ""
-        # precision: 
-        
+        # precision:
+
     precision:
       format:
         # separator:
         delimiter: ""
         # precision:
-        
+
     human:
       format:
-        # separator: 
+        # separator:
         delimiter: ""
         precision: 1
       storage_units:
@@ -60,16 +57,16 @@ it:
     month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
     abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
     order: [ :day, :month, :year ]
-  
+
   time:
     formats:
       default: "%a %d %b %Y, %H:%M:%S %z"
       short: "%d %b %H:%M"
       long: "%d %B %Y %H:%M"
-          
+
     am: 'am'
     pm: 'pm'
-      
+
   datetime:
     distance_in_words:
       half_a_minute: "mezzo minuto"
@@ -103,6 +100,9 @@ it:
       over_x_years:
         one:  "oltre un anno"
         other: "oltre {{count}} anni"
+      almost_x_years:
+        one:   "circa un anno"
+        other: "circa {{count}} anni"
     prompts:
       year:   "Anno"
       month:  "Mese"
@@ -116,31 +116,69 @@ it:
       words_connector: ", "
       two_words_connector: " e "
       last_word_connector: ", e "
-        
-  activerecord:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Selezionare un'opzione"
+
+  activemodel:
     errors:
       template:
-        header: 
-          one: "Non posso salvare questo {{model}}: 1 errore"
-          other: "Non posso salvare questo {{model}}: {{count}} errori."
-        body: "Per favore ricontrolla i seguenti campi:"
+        header:
+          one:    "Un errore non ha permesso il salvataggio di questo {{model}}"
+          other:  "{{count}} errori non hanno permesso il salvataggio di questo {{model}}"
+        # The variable :count is also available
+        body: "Controllare i seguenti campi:"
+
+  activerecord:
+    errors:
       messages:
-        inclusion: "non è incluso nella lista"
+        inclusion: "non è incluso nella lista dei valori ammessi"
         exclusion: "è riservato"
         invalid: "non è valido"
-        confirmation: "non coincide con la conferma"
-        accepted: "deve essere accettata"
+        confirmation: "non coincide con la relativa conferma"
+        accepted: "deve essere spuntato"
         empty: "non può essere vuoto"
         blank: "non può essere lasciato in bianco"
-        too_long: "è troppo lungo (il massimo è {{count}} lettere)"
-        too_short: "è troppo corto (il minimo è {{count}} lettere)"
-        wrong_length: "è della lunghezza sbagliata (deve essere di {{count}} lettere)"
+        too_long: "è troppo lungo (la lunghezza massima è di {{count}} caratteri)"
+        too_short: "è troppo corto (la lunghezza minima è di {{count}} caratteri)"
+        wrong_length: "è della lunghezza sbagliata (deve essere di {{count}} caratteri)"
         taken: "è già in uso"
-        not_a_number: "non è un numero"
+        not_a_number: "deve essere un valore numerico valido"
+        not_an_integer: "deve essere un numero intero"
         greater_than: "deve essere superiore a {{count}}"
-        greater_than_or_equal_to: "deve essere superiore o uguale a {{count}}"
+        greater_than_or_equal_to: "deve essere uguale o superiore a {{count}}"
         equal_to: "deve essere uguale a {{count}}"
-        less_than: "deve essere meno di {{count}}"
-        less_than_or_equal_to: "deve essere meno o uguale a {{count}}"
+        less_than: "deve essere inferiore a {{count}}"
+        less_than_or_equal_to: "deve essere uguale o inferiore a {{count}}"
         odd: "deve essere dispari"
         even: "deve essere pari"
+        record_invalid: "La validazione è fallita: {{errors}}"
+        # Append your own errors here or at the model/attributes scope.
+
+      # You can define own errors for models or model attributes.
+      # The values :model, :attribute and :value are always available for interpolation.
+      #
+      # For example,
+      #   models:
+      #     user:
+      #       blank: "This is a custom blank message for {{model}}: {{attribute}}"
+      #       attributes:
+      #         login:
+      #           blank: "This is a custom blank message for User login"
+      # Will define custom blank validation message for User model and
+      # custom blank validation message for login attribute of User model.
+      #models:
+
+    # Translate model names. Used in Model.human_name().
+    #models:
+      # For example,
+      #   user: "Dude"
+      # will translate User model name to "Dude"
+
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    #attributes:
+      # For example,
+      #   user:
+      #     login: "Handle"
+      # will translate User attribute "login" as "Handle"
+
