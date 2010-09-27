@@ -1,17 +1,26 @@
 # Italian translation for Ruby on Rails
-# by Maurizio De Santis (desantis.maurizio@gmail.com)
+# Author: Maurizio De Santis (desantis.maurizio@gmail.com)
+#
+# Some translations have been taken from the Rails 2.3 version
+# of this locale (maintained by Simone Carletti aka weppos).
 #
 # I decided to write this translation from the scratch, because
-# I am tired of debugging i18n locales written with shallowness.
+# I'm tired of debugging i18n locales written with shallowness.
 #
-# This localization file targets Rails 3.0.
+# It translates all Rails 3.0 locales (except for en.hello_world),
+# plus dynamic_form' locale, which translates error_messages helper
+# (see below for details).
+#
+# Probably it will work with all Rails 3.x versions, but I do not guarantee it
+# as Rails' developers will continue to change the tack of the project
+# providing low or no informations about changes.
 #
 
 it:
 
-  # ---
-  # Original Rails locale file: activesupport-3.0.0/lib/active_support/locale/en.yml
-  # ---
+# ---
+# Original Rails locale file: http://github.com/rails/rails/tree/3-0-stable/lib/active_support/locale/en.yml
+# ---
 
   date:
     formats:
@@ -49,9 +58,9 @@ it:
       two_words_connector: " e "
       last_word_connector: ", e "
 
-  # ---
-  # Original Rails locale file: activerecord-3.0.0/lib/active_record/locale/en.yml
-  # ---
+# ---
+# Original Rails locale file: http://github.com/rails/rails/tree/3-0-stable/lib/active_record/locale/en.yml
+# ---
 
   # Attributes names common to most models
   attributes:
@@ -63,7 +72,7 @@ it:
     errors:
       messages:
         taken: "è già in uso"
-        record_invalid: "La validazione è fallita: %{errors}"
+        record_invalid: "La validazione non è andata a buon fine: %{errors}"
         # Append your own errors here or at the model/attributes scope.
 
       # You can define own errors for models or model attributes.
@@ -93,9 +102,9 @@ it:
       #     login: "Handle"
       # will translate User attribute "login" as "Handle"
 
-  # ---
-  # Original Rails locale: activemodel-3.0.0/lib/active_model/locale/en.yml
-  # ---
+# ---
+# Original Rails locale: http://github.com/rails/rails/tree/3-0-stable/lib/active_model/locale/en.yml
+# ---
 
   errors:
     # The default format to use in full error messages.
@@ -110,7 +119,7 @@ it:
       confirmation: "non coincide con la conferma"
       accepted: "deve essere spuntato"
       empty: "non può essere vuoto"
-      blank: "deve essere compilato"
+      blank: "non può essere lasciato in bianco"
       too_long: "è troppo lungo (la lunghezza massima consentita è di %{count} caratteri)"
       too_short: "è troppo corto (la lunghezza minima è di %{count} caratteri)"
       wrong_length: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
@@ -124,9 +133,34 @@ it:
       odd: "deve essere dispari"
       even: "deve essere pari"
 
-  # ---
-  # Original Rails locale file: actionpack-3.0.0/lib/action_view/locale/en.yml
-  # ---
+# ---
+# Original Rails locale file: http://github.com/rails/dynamic_form/blob/master/lib/action_view/locale/en.yml
+# ---
+#
+# *** --- IMPORTANT --- ***
+#
+# The translation below will not work until you will not include
+# dynamic_form plugin in your Rails' app, 'cause Rails develpers
+# decided to move error_messages helper methods out from Rails.
+#
+# You can find the plugin here:   http://github.com/rails/dynamic_form/
+#
+# Add it to your Gemfile, and keep in mind you will need to
+# include the helper methods defined by the plugin in your views.
+#
+# If you intend to manage validations errors showing in other ways,
+# you can delete these translations (and these comments with them).
+
+    template:
+      header:
+        one:   "1 errore non ha permesso il salvataggio di %{model}"
+        other: "%{count} errori non hanno permesso il salvataggio di %{model}"
+      # The variable :count is also available
+      body:    "Controllare i seguenti campi:"
+
+# ---
+# Original Rails locale file: http://github.com/rails/rails/tree/3-0-stable/actionpack/lib/action_view/locale/en.yml
+# ---
 
   number:
     # Used in number_with_delimiter()
@@ -303,7 +337,7 @@ it:
 
     # Default translation keys for submit FormHelper
     submit:
-      create: 'Creazione %{model}'
+      create: 'Crea %{model}'
       update: 'Modifica %{model}'
-      submit: 'Salvataggio %{model}'
+      submit: 'Salva %{model}'
 
